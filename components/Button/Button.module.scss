@@ -1,13 +1,14 @@
 @import "../../styles/colors.scss";
 
 .btn {
-  padding: 17px 22px;
+  padding: 15px 22px;
   border: none;
   background: $color-accent;
   color: $color-white;
   font-weight: 600;
   border-radius: 30px;
   width: fit-content;
+  font-size: 16px;
   cursor: pointer;
 
   &:hover {

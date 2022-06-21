@@ -1,0 +1,29 @@
+@import "../../styles/colors.scss";
+
+.total {
+  color: $color-black;
+
+  p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    margin: 0;
+    width: fit-content;
+
+    span {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 27px;
+    }
+
+    .accent {
+      color: $color-accent;
+    }
+
+    .default {
+      color: $color-black;
+    }
+  }
+}

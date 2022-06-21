@@ -1,0 +1,38 @@
+@import "../../styles/colors.scss";
+
+.selector {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 12px 0;
+  width: fit-content;
+
+  button {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: $color-black;
+    background: transparent;
+    border: none;
+    padding: 10px 14px;
+    text-align: start;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba($color: $color-grey, $alpha: 7.5%)
+    }
+  }
+
+  .active {
+    font-weight: 600;
+    color: $color-accent;
+    background: rgba($color: $color-accent, $alpha: 5%);
+
+    &:hover {
+      background: rgba($color: $color-accent, $alpha: 10%)
+    }
+  }
+}

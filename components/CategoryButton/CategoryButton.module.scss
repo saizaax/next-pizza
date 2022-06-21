@@ -1,0 +1,30 @@
+@import "../../styles/colors.scss";
+
+.category {
+  background: $color-light;
+  color: $color-dark;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  border-radius: 30px;
+  padding: 13.5px 24px;
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+  
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.active {
+  background: $color-dark;
+  color: $color-white;
+}
+
+.inactive {
+  background: $color-light;
+  color: $color-dark;
+}

@@ -1,0 +1,14 @@
+@import "../../styles/colors.scss";
+
+.heading {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+  color: $color-dark;
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+  position: relative;
+  margin: 0;
+}
