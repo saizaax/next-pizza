@@ -2,7 +2,7 @@ import React, { FC } from "react"
 import Image from "next/image"
 import s from "./CartButton.module.scss"
 
-import cartIcon from "../../public/assets/cart-white.svg"
+import cartIcon from "../../public/icons/cart-white.svg"
 
 type Props = {
   onClick?: () => void

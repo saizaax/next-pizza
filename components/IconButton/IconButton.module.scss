@@ -1,0 +1,25 @@
+@import "../../styles/colors.scss";
+
+.btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  border: solid 2px $color-accent;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.primary {
+  border-color: $color-accent;
+}
+
+.secondary {
+  border-color: $color-grey;
+}

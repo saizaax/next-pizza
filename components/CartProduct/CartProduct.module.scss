@@ -1,0 +1,53 @@
+@import "../../styles/colors.scss";
+
+.item {
+  display: flex;
+  border-top: solid 1px $color-pale;
+  padding: 30px 0 5px 0;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .info {
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+
+    .text {
+      display: flex;
+      flex-direction: column;
+
+      h3 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 27px;
+        color: $color-black;
+        margin: 0;
+      }
+
+      p {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        color: $color-grey;
+        margin: 0;
+      }
+    }
+  }
+
+  .quantity {
+    display: flex;
+    column-gap: 90px;
+    align-items: center;
+
+    .price {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 27px;
+      color: $color-black;
+    }
+  }
+}

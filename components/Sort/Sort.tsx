@@ -2,7 +2,7 @@ import React, { FC } from "react"
 import Image from "next/image"
 import s from "./Sort.module.scss"
 
-import arrowIcon from "../../public/assets/arrow.svg"
+import arrowIcon from "../../public/icons/arrow.svg"
 
 type Props = {
   value: string
