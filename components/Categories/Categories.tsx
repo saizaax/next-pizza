@@ -1,15 +1,12 @@
 import React, { FC } from "react"
 import s from "./Categories.module.scss"
 
-import { CategoryButton } from "../CategoryButton/CategoryButton"
+type Props = {
+  children: React.ReactNode
+}
 
-const Categories: FC = () => {
-  return (
-    <div className={s.categories}>
-      <CategoryButton type="active">Все</CategoryButton>
-      <CategoryButton type="inactive">Мясные</CategoryButton>
-    </div>
-  )
+const Categories: FC<Props> = ({ children }) => {
+  return <div className={s.categories}>{children}</div>
 }
 
 export { Categories }

@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
-import s from './Selector.module.scss'
+import s from './SortPopup.module.scss'
 
 type Props = {
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
-const Selector: FC = () => {
+const SortPopup: FC<Props> = () => {
   return (
     <div className={s.selector}>
       <button className={s.active}>популярности</button>
@@ -15,4 +15,4 @@ const Selector: FC = () => {
   )
 }
 
-export { Selector }
+export { SortPopup }

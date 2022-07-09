@@ -1,6 +1,6 @@
 import type { NextPage } from "next"
 import Head from "next/head"
-import s from "./index.module.scss"
+import s from "./home.module.scss"
 
 import cartIcon from "../public/icons/cart-black.svg"
 import arrowBackIcon from "../public/icons/arrow-back.svg"
@@ -13,7 +13,7 @@ import examplePizza from "../public/images/example.jpeg"
 
 import { Header } from "../components/Header/Header"
 import { Button } from "../components/Button/Button"
-import { Selector } from "../components/Selector/Selector"
+import { SortPopup } from "../components/SortPopup/SortPopup"
 import { Sort } from "../components/Sort/Sort"
 import { CartButton } from "../components/CartButton/CartButton"
 import { Heading } from "../components/Heading/Heading"
@@ -27,6 +27,7 @@ import { CounterButton } from "../components/CounterButton/CounterButton"
 import { InlineSelector } from "../components/InlineSelector/InlineSelector"
 import { CartProduct } from "../components/CartProduct/CartProduct"
 import { Product } from "../components/Product/Product"
+import { CategoryButton } from "../components/CategoryButton/CategoryButton"
 
 const Home: NextPage = () => {
   return (
@@ -38,54 +39,33 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={s.main}>
-        <Header />
-        <Button color="primary">Купить</Button>
-        <Button color="dark">Купить</Button>
-        <Button color="light" icon={arrowBackIcon}>
-          Вернуться назад
-        </Button>
+        <Header type="cart" />
 
-        <Selector />
+        <div className={s.categories}>
+          <Categories>
+            <CategoryButton type="active">Все</CategoryButton>
+            <CategoryButton type="inactive">Мясные</CategoryButton>
+            <CategoryButton type="inactive">Вегетарианские</CategoryButton>
+            <CategoryButton type="inactive">Гриль</CategoryButton>
+            <CategoryButton type="inactive">Острые</CategoryButton>
+            <CategoryButton type="inactive">Морские</CategoryButton>
+            <CategoryButton type="inactive">Сезонные</CategoryButton>
+          </Categories>
 
-        <Sort value="популярности" />
-
-        <CartButton total={520} amount={3} />
+          <Sort value="популярности" />
+        </div>
 
         <Heading>Все пиццы</Heading>
-        <Heading icon={cartIcon}>Корзина</Heading>
 
-        <Categories />
-
-        <Total value={3} metric="шт." type="default">
-          Всего пицц
-        </Total>
-        <Total value={900} metric="₽" type="accent">
-          Сумма заказа
-        </Total>
-
-        <IconButton icon={addIcon} type="primary" />
-        <IconButton icon={removeIcon} type="primary" />
-        <IconButton icon={deleteIcon} type="secondary" />
-
-        <Counter />
-
-        <InlineButton icon={trashIcon}>Очистить корзину</InlineButton>
-
-        <CounterButton icon={addIcon}>Добавить</CounterButton>
-
-        <InlineSelector variants={["26 см.", "30 см.", "40 см."]} />
-
-        <CartProduct
-          title="Сырный цыпленок"
-          price={900}
-          preview={examplePizza}
-          type="тонкое тесто"
-          size="26 см."
-        />
-
-        <Product title="Сырный цыпленок" price={900} preview={examplePizza} />
-
-        <EmptyCart />
+        <div className={s.pizza}>
+          <Product preview={examplePizza} title="Ветчина и сыр" price={450} />
+          <Product preview={examplePizza} title="Ветчина и сыр" price={450} />
+          <Product preview={examplePizza} title="Ветчина и сыр" price={450} />
+          <Product preview={examplePizza} title="Ветчина и сыр" price={450} />
+          <Product preview={examplePizza} title="Ветчина и сыр" price={450} />
+          <Product preview={examplePizza} title="Ветчина и сыр" price={450} />
+          <Product preview={examplePizza} title="Ветчина и сыр" price={450} />
+        </div>
       </main>
     </div>
   )

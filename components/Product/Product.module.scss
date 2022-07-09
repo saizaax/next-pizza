@@ -5,15 +5,20 @@
   flex-direction: column;
   align-items: center;
   row-gap: 10px;
-  width: fit-content;
+  flex: 1;
   min-width: 310px;
 
   /*****/
   padding: 15px;
   background: #FFFFFF;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  border: solid 1px $color-pale;
   border-radius: 10px;
   /*****/
+
+  &:hover {
+    transition: 0.1s;
+    border: solid 1px $color-light;
+  }
 
   .info {
     display: flex;

@@ -1,31 +1,36 @@
 @import "../../styles/colors.scss";
 
-.container {
-  display: flex;
-  column-gap: 8px;
-  width: fit-content;
+.sort {
+  position: relative;
 
-  .sort {
-    color: $color-dark;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 17px;
-    margin: 0;
-  }
+  .container {
+    display: flex;
+    column-gap: 8px;
+    width: fit-content;
+    height: fit-content;
 
-  .param {
-    color: $color-accent;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 17px;
-    border-bottom: 1px dotted $color-accent;
-    text-decoration: none;
-    margin: 0;
-    cursor: pointer;
+    .name {
+      color: $color-dark;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 17px;
+      margin: 0;
+    }
 
-    &:hover {
-      opacity: 0.9;
+    .param {
+      color: $color-accent;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      border-bottom: 1px dotted $color-accent;
+      text-decoration: none;
+      margin: 0;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.9;
+      }
     }
   }
 }

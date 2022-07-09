@@ -1,9 +1,14 @@
-import React, { FC } from 'react'
+import React, { FC } from "react"
 import s from "./Header.module.scss"
 
-import { Logo } from '../Logo/Logo'
+import { Logo } from "../Logo/Logo"
+import { CartButton } from "../CartButton/CartButton"
 
-const Header: FC = () => {
+type Props = {
+  type?: "cart"
+}
+
+const Header: FC<Props> = ({ type }) => {
   return (
     <div className={s.container}>
       <div className={s.logo}>
@@ -13,6 +18,7 @@ const Header: FC = () => {
           <p>Лучшая пицца на планете</p>
         </div>
       </div>
+      {type === "cart" ? <CartButton amount={3} total={1590} /> : null}
     </div>
   )
 }
