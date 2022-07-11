@@ -2,6 +2,8 @@ import Image, { StaticImageData } from "next/image"
 import React, { FC } from "react"
 import s from "./Product.module.scss"
 
+import cartIcon from "../../public/icons/cart-primary.svg"
+
 import { CounterButton } from "../CounterButton/CounterButton"
 import { InlineSelector } from "../InlineSelector/InlineSelector"
 
@@ -14,16 +16,18 @@ type Props = {
 const Product: FC<Props> = ({ title, preview, price }) => {
   return (
     <div className={s.product}>
-      <Image src={preview} alt={title} width={260} height={260} />
+      <span className={s.preview}>
+        <Image src={preview} alt={title} />
+      </span>
       <div className={s.info}>
         <h3>{title}</h3>
         <div className={s.select}>
           <InlineSelector variants={["тонкое", "традиционное"]} />
-          <InlineSelector variants={["26 см.", "30 см.", "40 см."]} />
+          <InlineSelector variants={["26см.", "30см.", "40см."]} />
         </div>
         <div className={s.price}>
-          <h3>от {price} ₽</h3>
-          <CounterButton>Добавить</CounterButton>
+          <h3>{price} ₽</h3>
+          <CounterButton icon={cartIcon}>Добавить</CounterButton>
         </div>
       </div>
     </div>

@@ -15,6 +15,7 @@ import { Heading } from "../../components/Heading/Heading"
 import { InlineButton } from "../../components/InlineButton/InlineButton"
 import { Total } from "../../components/Total/Total"
 import { Button } from "../../components/Button/Button"
+import { EmptyCart } from "../../components/EmptyCart/EmptyCart"
 
 const Cart: NextPage = () => {
   return (
@@ -96,6 +97,10 @@ const Cart: NextPage = () => {
               <Button color="primary">Оплатить сейчас</Button>
             </div>
           </div>
+          {/* <div className={s.empty}>
+            <EmptyCart />
+            <Button color="dark">Вернуться назад</Button>
+          </div> */}
         </div>
       </main>
     </div>

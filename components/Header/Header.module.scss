@@ -36,4 +36,10 @@
     line-height: 19px;
     color: #7b7b7b;
   }
+
+  @media screen and (max-width: 680px) {
+    p {
+      display: none;
+    }
+  }
 }

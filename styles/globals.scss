@@ -9,6 +9,10 @@ body {
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: $color-background;
   padding: 45px;
+
+  @media screen and (max-width: 770px) {
+    padding: 5px;
+  }
 }
 
 button,

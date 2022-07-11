@@ -22,7 +22,7 @@
     opacity: 0.8;
   }
 
-  span {
+  .count {
     font-style: normal;
     font-weight: 700;
     font-size: 13px;
@@ -35,5 +35,24 @@
     justify-content: center;
     background: $color-accent;
     color: $color-white;
+  }
+
+  .icon {
+    height: 22px;
+    width: 22px;
+    
+    display: none;
+  }
+
+  @media screen and (max-width: 460px) {
+    column-gap: 4px;
+
+    .text {
+      display: none;
+    }
+
+    .icon {
+      display: initial;
+    }
   }
 }

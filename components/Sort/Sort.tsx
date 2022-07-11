@@ -19,7 +19,7 @@ const Sort: FC<Props> = ({ value }) => {
   return (
     <div className={s.sort}>
       <div className={s.container}>
-        <Image src={arrowIcon} alt="" />
+        <Image src={arrowIcon} alt="" layout="fixed" width={10} height={18} />
         <p className={s.name}>Сортировка по:</p>
         <p
           className={s.param}

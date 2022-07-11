@@ -13,8 +13,13 @@ const CounterButton: FC<Props> = ({ icon, children }) => {
 
   return (
     <button className={s.btn} onClick={() => setCount((prev) => prev + 1)}>
-      {icon ? <Image src={icon} alt="" width={12} height={12} /> : null}{" "}
-      {children} <span>{count}</span>
+      {icon ? (
+        <span className={s.icon}>
+          <Image src={icon} alt="" />
+        </span>
+      ) : null}{" "}
+      <span className={s.text}>{children}</span>{" "}
+      <span className={s.count}>{count}</span>
     </button>
   )
 }
