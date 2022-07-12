@@ -16,6 +16,7 @@ import { InlineButton } from "../../components/InlineButton/InlineButton"
 import { Total } from "../../components/Total/Total"
 import { Button } from "../../components/Button/Button"
 import { EmptyCart } from "../../components/EmptyCart/EmptyCart"
+import Link from "next/link"
 
 const Cart: NextPage = () => {
   return (
@@ -91,10 +92,18 @@ const Cart: NextPage = () => {
             </div>
 
             <div className={s.actions}>
-              <Button color="light" icon={arrowBackIcon}>
-                Вернуться назад
-              </Button>
-              <Button color="primary">Оплатить сейчас</Button>
+              <Link href="/">
+                <a>
+                  <Button color="light" icon={arrowBackIcon}>
+                    Вернуться назад
+                  </Button>
+                </a>
+              </Link>
+              <Link href="/checkout">
+                <a>
+                  <Button color="primary">Оплатить сейчас</Button>
+                </a>
+              </Link>
             </div>
           </div>
           {/* <div className={s.empty}>

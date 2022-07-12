@@ -12,7 +12,13 @@
   border: none;
   width: fit-content;
   background: transparent;
+  padding: 0;
   cursor: pointer;
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
 
   &:hover {
     opacity: 0.8;

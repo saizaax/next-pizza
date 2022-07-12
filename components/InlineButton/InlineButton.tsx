@@ -10,7 +10,12 @@ type Props = {
 const InlineButton: FC<Props> = ({ children, icon }) => {
   return (
     <button className={s.btn}>
-      {icon ? <Image src={icon} alt="" /> : null} {children}
+      {icon ? (
+        <span className={s.icon}>
+          <Image src={icon} alt="" layout="fixed" width={20} height={20} />
+        </span>
+      ) : null}{" "}
+      {children}
     </button>
   )
 }
