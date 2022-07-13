@@ -14,6 +14,8 @@ const initialState: CartSliceState = {
     title: "Ветчина и сыр",
     price: 990,
     preview: "https://dodopizza-a.akamaihd.net/static/Img/Products/5630c6ed3f394c7ba25e1ef79a67b7ee_584x584.jpeg",
+    type: "Традиционное",
+    size: "35см.",
     amount: 1,
   }],
   total: 990

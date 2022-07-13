@@ -8,8 +8,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { selectCart } from "../../redux/cart/selectors"
 import { clear } from "../../redux/cart/slice"
 
-import examplePizza from "../../public/images/example.jpeg"
-
 import cartIcon from "../../public/icons/cart-black.svg"
 import trashIcon from "../../public/icons/trash.svg"
 import arrowBackIcon from "../../public/icons/arrow-back.svg"
@@ -24,9 +22,9 @@ import { EmptyCart } from "../../components/EmptyCart/EmptyCart"
 
 const Cart: NextPage = () => {
   const dispatch = useDispatch()
-  const { items } = useSelector(selectCart)
+  const { total, items } = useSelector(selectCart)
 
-  const totalCount = items.reduce(
+  const totalAmount = items.reduce(
     (sum: number, item: any) => sum + item.amount,
     0
   )
@@ -49,11 +47,13 @@ const Cart: NextPage = () => {
         <Header />
 
         <div className={s.container}>
-          {totalCount ? (
+          {totalAmount ? (
             <div className={s.cart}>
               <div className={s.heading}>
                 <Heading icon={cartIcon}>Корзина</Heading>
-                <InlineButton icon={trashIcon} onClick={clearHandler}>Очистить корзину</InlineButton>
+                <InlineButton icon={trashIcon} onClick={clearHandler}>
+                  Очистить корзину
+                </InlineButton>
               </div>
 
               <div className={s.pizza}>
@@ -63,10 +63,10 @@ const Cart: NextPage = () => {
               </div>
 
               <div className={s.total}>
-                <Total type="default" value={3} metric="шт.">
+                <Total type="default" value={totalAmount} metric="шт.">
                   Всего пицц
                 </Total>
-                <Total type="accent" value={900} metric="₽">
+                <Total type="accent" value={total} metric="₽">
                   Сумма заказа
                 </Total>
               </div>
