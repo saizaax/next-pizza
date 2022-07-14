@@ -1,0 +1,32 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+model Category {
+  id     String              @id @default(cuid())
+  name   String              @unique
+  pizzas CategoriesOnPizza[]
+}
+
+model Pizza {
+  id         String              @id @default(cuid())
+  title      String
+  price      Int
+  preview    String
+  categories CategoriesOnPizza[]
+}
+
+model CategoriesOnPizza {
+  id         String   @id @default(cuid())
+  pizza      Pizza    @relation(fields: [pizzaId], references: [id])
+  pizzaId    String
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId String
+}

@@ -3,6 +3,8 @@ import Link from "next/link"
 import Head from "next/head"
 import s from "./home.module.scss"
 
+import categoriesConfig from "../config/categories.json"
+
 import examplePizza from "../public/images/example.jpeg"
 
 import { Header } from "../components/Header/Header"
@@ -26,36 +28,13 @@ const Home: NextPage = () => {
 
         <div className={s.categories}>
           <Categories>
-            <Link href="/">
-              <a>
-                <CategoryButton type="active">Все</CategoryButton>
-              </a>
-            </Link>
-            <Link href="/category/meat">
-              <a>
-                <CategoryButton type="inactive">Мясные</CategoryButton>
-              </a>
-            </Link>
-            <Link href="/category/vegetarian">
-              <a>
-                <CategoryButton type="inactive">Вегетарианские</CategoryButton>
-              </a>
-            </Link>
-            <Link href="/category/grilled">
-              <a>
-                <CategoryButton type="inactive">Гриль</CategoryButton>
-              </a>
-            </Link>
-            <Link href="/category/spicy">
-              <a>
-                <CategoryButton type="inactive">Острые</CategoryButton>
-              </a>
-            </Link>
-            <Link href="/category/seasonal">
-              <a>
-                <CategoryButton type="inactive">Сезонные</CategoryButton>
-              </a>
-            </Link>
+            {categoriesConfig.categories.map(({ name, url }) => (
+              <Link href={url}>
+                <a>
+                  <CategoryButton type="inactive">{name}</CategoryButton>
+                </a>
+              </Link>
+            ))}
           </Categories>
 
           <Sort value="популярности" />

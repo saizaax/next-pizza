@@ -3,6 +3,5 @@ export interface IPizza {
   title: string
   price: number
   preview: string
-  sizes: number[]
-  types: string[]
+  category: string
 }

@@ -1,0 +1,28 @@
+{
+  "categories": [
+    {
+      "name": "Все",
+      "url": "/"
+    },
+    {
+      "name": "Мясные",
+      "url": "/category/meat"
+    },
+    {
+      "name": "Вегетарианские",
+      "url": "/category/vegetarian"
+    },
+    {
+      "name": "Гриль",
+      "url": "/category/grilled"
+    },
+    {
+      "name": "Острые",
+      "url": "/category/spicy"
+    },
+    {
+      "name": "Сезонные",
+      "url": "/category/seasonal"
+    }
+  ]
+}
