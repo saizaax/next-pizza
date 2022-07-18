@@ -4,22 +4,21 @@ import s from "./CounterButton.module.scss"
 
 type Props = {
   children: React.ReactNode
+  amount: number
   icon?: string
   onClick?: () => void
 }
 
-const CounterButton: FC<Props> = ({ icon, children }) => {
-  const [count, setCount] = React.useState(0)
-
+const CounterButton: FC<Props> = ({ icon, children, onClick, amount }) => {
   return (
-    <button className={s.btn} onClick={() => setCount((prev) => prev + 1)}>
+    <button className={s.btn} onClick={onClick}>
       {icon ? (
         <span className={s.icon}>
           <Image src={icon} alt="" />
         </span>
       ) : null}{" "}
       <span className={s.text}>{children}</span>{" "}
-      <span className={s.count}>{count}</span>
+      {amount > 0 ? <span className={s.count}>{amount}</span> : null}
     </button>
   )
 }

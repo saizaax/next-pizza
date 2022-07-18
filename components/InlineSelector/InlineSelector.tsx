@@ -4,10 +4,15 @@ import cn from "classnames"
 
 type Props = {
   variants: string[]
+  onChange: (value: string) => void
 }
 
-const InlineSelector: FC<Props> = ({ variants }) => {
+const InlineSelector: FC<Props> = ({ variants, onChange }) => {
   const [selected, setSelected] = React.useState(variants[0])
+
+  React.useEffect(() => {
+    onChange(selected)
+  }, [selected])
 
   return (
     <div className={s.select}>

@@ -29,7 +29,8 @@ const Counter: FC<Props> = ({
 }) => {
   const dispatch = useDispatch()
 
-  const handleAdd = () => dispatch(add({ id, title, type, size, price, amount, preview }))
+  const handleAdd = () =>
+    dispatch(add({ id, title, type, size, price, amount, preview }))
   const handleRemove = () => dispatch(subtract(id))
 
   return (
@@ -37,14 +38,10 @@ const Counter: FC<Props> = ({
       <IconButton
         icon={removeIcon}
         type="primary"
-        onClick={handleRemove}
+        onClick={amount > 1 ? handleRemove : () => {}}
       />
       <span>{amount}</span>
-      <IconButton
-        icon={addIcon}
-        type="primary"
-        onClick={handleAdd}
-      />
+      <IconButton icon={addIcon} type="primary" onClick={handleAdd} />
     </div>
   )
 }

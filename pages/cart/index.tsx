@@ -19,13 +19,14 @@ import { InlineButton } from "../../components/InlineButton/InlineButton"
 import { Total } from "../../components/Total/Total"
 import { Button } from "../../components/Button/Button"
 import { EmptyCart } from "../../components/EmptyCart/EmptyCart"
+import { ICartItem } from "../../utils/types/cartItem.interface"
 
 const Cart: NextPage = () => {
   const dispatch = useDispatch()
   const { total, items } = useSelector(selectCart)
 
   const totalAmount = items.reduce(
-    (sum: number, item: any) => sum + item.amount,
+    (sum: number, item: ICartItem) => sum + item.amount,
     0
   )
 

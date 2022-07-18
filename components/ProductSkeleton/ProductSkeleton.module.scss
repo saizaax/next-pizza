@@ -1,0 +1,16 @@
+@import "../../styles/colors.scss";
+
+.skeleton {
+  min-width: 295px;
+  padding: 15px;
+  background: #FFFFFF;
+  border: solid 1px $color-pale;
+  border-radius: 10px;
+  justify-content: center;
+  display: flex;
+
+  .content {
+    width: fit-content;
+    height: fit-content;
+  }
+}

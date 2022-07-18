@@ -1,31 +1,23 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { calculateTotal } from "../../utils/calculateTotal"
 
-import { ICartItem } from "../../utils/interfaces/cartItem.interface"
+import { ICartItem } from "../../utils/types/cartItem.interface"
 
-interface CartSliceState {
+interface ICartSliceState {
   items: ICartItem[]
   total: number
 }
 
-const initialState: CartSliceState = {
-  items: [{
-    id: "1",
-    title: "Ветчина и сыр",
-    price: 990,
-    preview: "https://dodopizza-a.akamaihd.net/static/Img/Products/5630c6ed3f394c7ba25e1ef79a67b7ee_584x584.jpeg",
-    type: "Традиционное",
-    size: "35см.",
-    amount: 1,
-  }],
-  total: 990
+const initialState: ICartSliceState = {
+  items: [],
+  total: 0
 }
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    add(state: CartSliceState, action: PayloadAction<ICartItem>) {
+    add(state: ICartSliceState, action: PayloadAction<ICartItem>) {
       const findItem = state.items.find((obj) => obj.id === action.payload.id)
 
       if (findItem) findItem.amount++
@@ -33,18 +25,18 @@ const cartSlice = createSlice({
 
       state.total = calculateTotal(state.items)
     },
-    subtract(state: CartSliceState, action: PayloadAction<string>) {
+    subtract(state: ICartSliceState, action: PayloadAction<string>) {
       const findItem = state.items.find((obj) => obj.id === action.payload)
 
       if (findItem) findItem.amount--
 
       state.total = calculateTotal(state.items)
     },
-    remove(state: CartSliceState, action: PayloadAction<string>) {
+    remove(state: ICartSliceState, action: PayloadAction<string>) {
       state.items = state.items.filter((obj) => obj.id !== action.payload)
       state.total = calculateTotal(state.items)
     },
-    clear(state: CartSliceState) {
+    clear(state: ICartSliceState) {
       state.items = []
       state.total = 0
     }

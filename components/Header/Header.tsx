@@ -26,7 +26,7 @@ const Header: FC<Props> = ({ type }) => {
       {type === "cart" ? (
         <Link href="/cart">
           <a>
-            <CartButton amount={3} total={1590} />
+            <CartButton />
           </a>
         </Link>
       ) : null}

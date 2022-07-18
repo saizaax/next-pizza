@@ -1,7 +1,7 @@
 export interface IPizza {
-  id: number
+  id: string
   title: string
   price: number
   preview: string
-  category: string
+  categories: string[]
 }

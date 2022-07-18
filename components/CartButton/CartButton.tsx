@@ -3,14 +3,18 @@ import Image from "next/image"
 import s from "./CartButton.module.scss"
 
 import cartIcon from "../../public/icons/cart-white.svg"
+import { useSelector } from "react-redux"
+import { selectCart } from "../../redux/cart/selectors"
+import { ICartItem } from "../../utils/types/cartItem.interface"
 
-type Props = {
-  onClick?: () => void
-  total: number
-  amount: number
-}
+const CartButton: FC = () => {
+  const { total, items } = useSelector(selectCart)
 
-const CartButton: FC<Props> = ({ total, amount }) => {
+  const totalAmount = items.reduce(
+    (sum: number, item: ICartItem) => sum + item.amount,
+    0
+  )
+
   return (
     <button className={s.cart}>
       <span className={s.total}>{total} ₽</span>
@@ -23,7 +27,7 @@ const CartButton: FC<Props> = ({ total, amount }) => {
           height={18}
           layout="fixed"
         />{" "}
-        {amount}
+        {totalAmount}
       </span>
     </button>
   )
