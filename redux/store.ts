@@ -9,8 +9,8 @@ export const store = configureStore({
   reducer: {
     cart,
     pizza,
-    filters
-  }
+    filters,
+  },
 })
 
 export type RootState = ReturnType<typeof store.getState>

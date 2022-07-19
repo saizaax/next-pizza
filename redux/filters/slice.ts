@@ -8,7 +8,7 @@ interface IPizzaSliceState {
 
 const initialState: IPizzaSliceState = {
   category: "",
-  sort: sortConfig.POPULARITY.query
+  sort: sortConfig.POPULARITY.query,
 }
 
 export const filtersSlice = createSlice({
@@ -20,8 +20,8 @@ export const filtersSlice = createSlice({
     },
     setSort(state: IPizzaSliceState, action: PayloadAction<string>) {
       state.sort = action.payload
-    }
-  }
+    },
+  },
 })
 
 export const { setCategory, setSort } = filtersSlice.actions

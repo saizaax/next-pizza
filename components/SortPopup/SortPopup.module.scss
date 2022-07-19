@@ -7,7 +7,7 @@
   z-index: 1;
   display: flex;
   flex-direction: column;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding: 12px 0;
@@ -26,7 +26,7 @@
     cursor: pointer;
 
     &:hover {
-      background: rgba($color: $color-grey, $alpha: 7.5%)
+      background: rgba($color: $color-grey, $alpha: 7.5%);
     }
   }
 
@@ -36,7 +36,7 @@
     background: rgba($color: $color-accent, $alpha: 5%);
 
     &:hover {
-      background: rgba($color: $color-accent, $alpha: 10%)
+      background: rgba($color: $color-accent, $alpha: 10%);
     }
   }
 }

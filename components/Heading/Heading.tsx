@@ -10,7 +10,12 @@ type Props = {
 const Heading: FC<Props> = ({ icon, children }) => {
   return (
     <h1 className={s.heading}>
-      {icon ? <span className={s.icon}><Image src={icon} alt="" /></span> : null} {children}
+      {icon ? (
+        <span className={s.icon}>
+          <Image src={icon} alt="" />
+        </span>
+      ) : null}{" "}
+      {children}
     </h1>
   )
 }

@@ -10,7 +10,7 @@ interface IPizzaSliceState {
 
 const initialState: IPizzaSliceState = {
   items: [],
-  status: Status.LOADING
+  status: Status.LOADING,
 }
 
 const pizzaSlice = createSlice({
@@ -19,7 +19,7 @@ const pizzaSlice = createSlice({
   reducers: {
     set(state: IPizzaSliceState, action: PayloadAction<IPizza[]>) {
       state.items = action.payload
-    }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchPizzas.pending, (state) => {
@@ -36,7 +36,7 @@ const pizzaSlice = createSlice({
       state.status = Status.ERROR
       state.items = []
     })
-  }
+  },
 })
 
 export const { set } = pizzaSlice.actions

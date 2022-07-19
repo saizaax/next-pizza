@@ -24,7 +24,7 @@ import { getCartFromLocalStorage } from "../../utils/getCartFromLocalStorage"
 
 const Cart: NextPage = () => {
   const isMounted = React.useRef(false)
-  
+
   const dispatch = useDispatch()
   const { total, items } = useSelector(selectCart)
 

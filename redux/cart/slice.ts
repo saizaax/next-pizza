@@ -10,7 +10,7 @@ interface ICartSliceState {
 
 const initialState: ICartSliceState = {
   items: [],
-  total: 0
+  total: 0,
 }
 
 const cartSlice = createSlice({
@@ -43,8 +43,8 @@ const cartSlice = createSlice({
     clear(state: ICartSliceState) {
       state.items = []
       state.total = 0
-    }
-  }
+    },
+  },
 })
 
 export const { setCart, add, subtract, remove, clear } = cartSlice.actions

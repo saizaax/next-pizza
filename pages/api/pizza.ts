@@ -21,13 +21,13 @@ const create = async (req: NextApiRequest, res: NextApiResponse) => {
     category: {
       connectOrCreate: {
         where: {
-          name: category
+          name: category,
         },
         create: {
-          name: category
-        }
-      }
-    }
+          name: category,
+        },
+      },
+    },
   }))
 
   try {
@@ -37,12 +37,12 @@ const create = async (req: NextApiRequest, res: NextApiResponse) => {
         price: body.price,
         preview: body.preview,
         categories: {
-          create: body.categories
-        }
+          create: body.categories,
+        },
       },
       include: {
-        categories: true
-      }
+        categories: true,
+      },
     })
     return res.status(200).json(newEntry)
   } catch (error) {
@@ -63,17 +63,19 @@ const getAll = async (req: NextApiRequest, res: NextApiResponse) => {
             select: {
               category: {
                 select: {
-                  name: true
-                }
-              }
-            }
-          }
-        }
+                  name: true,
+                },
+              },
+            },
+          },
+        },
       })
       .then((pizzas) =>
         pizzas.map((pizza) => ({
           ...pizza,
-          categories: pizza.categories.map((category) => category.category.name)
+          categories: pizza.categories.map(
+            (category) => category.category.name
+          ),
         }))
       )
 
@@ -97,27 +99,29 @@ const getByCategory = async (req: NextApiRequest, res: NextApiResponse) => {
           categories: {
             some: {
               category: {
-                name: category
-              }
-            }
-          }
+                name: category,
+              },
+            },
+          },
         },
         include: {
           categories: {
             select: {
               category: {
                 select: {
-                  name: true
-                }
-              }
-            }
-          }
-        }
+                  name: true,
+                },
+              },
+            },
+          },
+        },
       })
       .then((pizzas) =>
         pizzas.map((pizza) => ({
           ...pizza,
-          categories: pizza.categories.map((category) => category.category.name)
+          categories: pizza.categories.map(
+            (category) => category.category.name
+          ),
         }))
       )
 

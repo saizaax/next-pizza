@@ -8,26 +8,26 @@ interface ICategories {
 export const categoriesConfig: ICategories = {
   ALL: {
     name: "Все",
-    query: ""
+    query: "",
   },
   MEAT: {
     name: "Мясные",
-    query: "meat"
+    query: "meat",
   },
   VEGETARIAN: {
     name: "Вегетарианские",
-    query: "vegetarian"
+    query: "vegetarian",
   },
   GRILLED: {
     name: "Гриль",
-    query: "grilled"
+    query: "grilled",
   },
   SPICY: {
     name: "Острые",
-    query: "spicy"
+    query: "spicy",
   },
   SEASONAL: {
     name: "Сезонные",
-    query: "seasonal"
-  }
+    query: "seasonal",
+  },
 }

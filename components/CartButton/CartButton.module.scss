@@ -37,11 +37,11 @@
     width: 1px;
   }
 
-
   @media screen and (max-width: 590px) {
     height: 50px;
-    
-    .total, hr {
+
+    .total,
+    hr {
       display: none;
     }
   }

@@ -9,12 +9,12 @@ export const getCartFromLocalStorage = () => {
 
     return {
       items: items as ICartItem[],
-      total
+      total,
     }
   }
 
   return {
     items: [],
-    total: 0
+    total: 0,
   }
 }

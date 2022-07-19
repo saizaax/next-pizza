@@ -8,14 +8,14 @@ interface ISort {
 export const sortConfig: ISort = {
   POPULARITY: {
     name: "популярности",
-    query: "popularity"
+    query: "popularity",
   },
   PRICE: {
     name: "цене",
-    query: "price"
+    query: "price",
   },
   ALPHABET: {
     name: "алфавиту",
-    query: "alphabet"
-  }
+    query: "alphabet",
+  },
 }

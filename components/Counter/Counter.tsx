@@ -25,7 +25,7 @@ const Counter: FC<Props> = ({
   size,
   price,
   amount,
-  preview
+  preview,
 }) => {
   const dispatch = useDispatch()
 
