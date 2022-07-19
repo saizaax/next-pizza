@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import { PrismaClient } from "@prisma/client"
+import { sortBy } from "../../utils/sortBy"
 
 const prisma = new PrismaClient()
 
@@ -45,15 +46,18 @@ const create = async (req: NextApiRequest, res: NextApiResponse) => {
     })
     return res.status(200).json(newEntry)
   } catch (error) {
-    console.log(error)
     res.status(500).json({ error: error })
   }
 }
 
 const getAll = async (req: NextApiRequest, res: NextApiResponse) => {
+  const sort = req.query.sort.toString()
+  const sortQuery = sortBy(sort)
+
   try {
     const pizza = await prisma.pizza
       .findMany({
+        orderBy: sortQuery,
         include: {
           categories: {
             select: {
@@ -81,10 +85,14 @@ const getAll = async (req: NextApiRequest, res: NextApiResponse) => {
 
 const getByCategory = async (req: NextApiRequest, res: NextApiResponse) => {
   const category = req.query.category.toString()
+  const sort = req.query.sort.toString()
+
+  const sortQuery = sortBy(sort)
 
   try {
     const pizza = await prisma.pizza
       .findMany({
+        orderBy: sortQuery,
         where: {
           categories: {
             some: {

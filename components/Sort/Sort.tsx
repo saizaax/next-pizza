@@ -4,16 +4,17 @@ import s from "./Sort.module.scss"
 
 import arrowIcon from "../../public/icons/arrow.svg"
 import { SortPopup } from "../SortPopup/SortPopup"
+import { selectFilters } from "../../redux/filters/selectors"
+import { useSelector } from "react-redux"
+import { sortConfig } from "../../config/sort"
 
-type Props = {
-  value: string
-}
+const Sort: FC = () => {
+  const { sort } = useSelector(selectFilters)
 
-const Sort: FC<Props> = ({ value }) => {
   const [showPopup, setShowPopup] = React.useState<boolean>(false)
 
-  const handleMouseClick = (e: MouseEvent<HTMLParagraphElement>) => {
-    setShowPopup(prev => !prev)
+  const handleMouseClick = (e: MouseEvent) => {
+    setShowPopup((prev) => !prev)
   }
 
   return (
@@ -21,14 +22,11 @@ const Sort: FC<Props> = ({ value }) => {
       <div className={s.container}>
         <Image src={arrowIcon} alt="" layout="fixed" width={10} height={18} />
         <p className={s.name}>Сортировка по:</p>
-        <p
-          className={s.param}
-          onClick={handleMouseClick}
-        >
-          {value}
+        <p className={s.param} onClick={handleMouseClick}>
+          {sortConfig[sort.toUpperCase()].name}
         </p>
       </div>
-      {showPopup ? <SortPopup /> : null}
+      {showPopup ? <SortPopup handleClose={handleMouseClick} /> : null}
     </div>
   )
 }

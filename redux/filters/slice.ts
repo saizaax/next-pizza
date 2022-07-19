@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { sortConfig } from "../../config/sort"
 
 interface IPizzaSliceState {
   category: string
@@ -6,8 +7,8 @@ interface IPizzaSliceState {
 }
 
 const initialState: IPizzaSliceState = {
-  category: "all",
-  sort: "popular"
+  category: "",
+  sort: sortConfig.POPULARITY.query
 }
 
 export const filtersSlice = createSlice({

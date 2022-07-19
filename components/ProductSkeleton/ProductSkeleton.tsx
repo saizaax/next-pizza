@@ -12,6 +12,7 @@ const ProductSkeleton: FC = () => (
         viewBox="0 0 265 382"
         backgroundColor="#f3f3f3"
         foregroundColor="#ecebeb"
+        uniqueKey="products"
       >
         <circle cx="132" cy="101" r="101" />
         <rect x="0" y="219" rx="5" ry="5" width="265" height="25" />
