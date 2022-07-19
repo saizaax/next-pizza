@@ -1,4 +1,5 @@
-import Image, { StaticImageData } from "next/image"
+import Image from "next/image"
+import { motion } from "framer-motion"
 import React, { FC } from "react"
 import s from "./Product.module.scss"
 
@@ -12,6 +13,7 @@ import { add } from "../../redux/cart/slice"
 import { Size, Type } from "../../utils/types/pizza.enum"
 import { selectCartItemById } from "../../redux/cart/selectors"
 import { ICartItem } from "../../utils/types/cartItem.interface"
+import animation from "./Product.motion"
 
 type Props = {
   id: string
@@ -43,7 +45,7 @@ const Product: FC<Props> = ({ id, title, preview, price: initialPrice }) => {
   }, [size])
 
   return (
-    <div className={s.product}>
+    <motion.div className={s.product} variants={animation}>
       <span className={s.preview}>
         <Image src={preview} alt={title} layout="fill" />
       </span>
@@ -66,7 +68,7 @@ const Product: FC<Props> = ({ id, title, preview, price: initialPrice }) => {
           </CounterButton>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

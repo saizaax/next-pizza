@@ -1,12 +1,20 @@
-import React, { FC } from 'react'
-import Image from 'next/image'
-import s from './NothingFound.module.scss'
+import React, { FC } from "react"
+import Image from "next/image"
+import { motion } from "framer-motion"
+import s from "./NothingFound.module.scss"
 
-import nothingFound from '../../public/illustrations/nothing-found.svg'
+import animation from "./NothingFound.motion"
+
+import nothingFound from "../../public/illustrations/nothing-found.svg"
 
 const NothingFound: FC = () => {
   return (
-    <div className={s.nothing}>
+    <motion.div
+      className={s.nothing}
+      variants={animation}
+      initial="hidden"
+      animate="visible"
+    >
       <div className={s.info}>
         <h1>Ничего не найдено 🤔</h1>
         <p>
@@ -16,7 +24,7 @@ const NothingFound: FC = () => {
         </p>
       </div>
       <Image src={nothingFound} alt="Nothing Found" />
-    </div>
+    </motion.div>
   )
 }
 

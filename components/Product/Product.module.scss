@@ -6,23 +6,26 @@
   align-items: center;
   row-gap: 10px;
   flex: 1;
-  min-width: 295px;
-
-  /*****/
   padding: 15px;
   background: #FFFFFF;
   border: solid 1px $color-pale;
   border-radius: 10px;
-  /*****/
+  min-width: 295px;
 
   .preview {
     width: 260px;
     height: 260px;
     position: relative;
+    transition: 0.2s;
+
+    &:hover {
+      transform: scale(1.05);
+      transition: 0.2s;
+    }
   }
 
   &:hover {
-    transition: 0.1s;
+    transition: 0.2s;
     border: solid 1px $color-light;
   }
 

@@ -1,4 +1,5 @@
 import type { NextPage } from "next"
+import { motion } from "framer-motion"
 import React from "react"
 import Head from "next/head"
 import s from "./home.module.scss"
@@ -23,6 +24,7 @@ import { NothingFound } from "../components/NothingFound/NothingFound"
 import { selectCart } from "../redux/cart/selectors"
 import { getCartFromLocalStorage } from "../utils/getCartFromLocalStorage"
 import { setCart } from "../redux/cart/slice"
+import animation from "./home.motion"
 
 const Home: NextPage = () => {
   const dispatch = useAppDispatch()
@@ -86,10 +88,17 @@ const Home: NextPage = () => {
         <Heading>Пиццы</Heading>
         {status === Status.SUCCESS && !pizzas.length ? (
           <NothingFound />
+        ) : status === Status.SUCCESS && pizzas.length ? (
+          <motion.div
+            className={s.pizza}
+            variants={animation}
+            initial="hidden"
+            animate="visible"
+          >
+            {pizzas}
+          </motion.div>
         ) : (
-          <div className={s.pizza}>
-            {status === Status.SUCCESS ? pizzas : skeletons}
-          </div>
+          <div className={s.pizza}>{skeletons}</div>
         )}
       </main>
     </div>
