@@ -19,6 +19,7 @@ import { IPizza } from "../utils/types/pizza.interface"
 import { ProductSkeleton } from "../components/ProductSkeleton/ProductSkeleton"
 import { Status } from "../utils/types/status.enum"
 import { selectFilters } from "../redux/filters/selectors"
+import { NothingFound } from "../components/NothingFound/NothingFound"
 
 const Home: NextPage = () => {
   const dispatch = useAppDispatch()
@@ -47,7 +48,7 @@ const Home: NextPage = () => {
     <Product key={pizza.id} {...pizza} />
   ))
 
-  const skeletons = Array.from({ length: 6 }).map((_, index) => (
+  const skeletons = Array.from({ length: 8 }).map((_, index) => (
     <ProductSkeleton key={index} />
   ))
 
@@ -65,10 +66,14 @@ const Home: NextPage = () => {
           <Categories>{categories}</Categories>
           <Sort />
         </div>
-        <Heading>Все пиццы</Heading>
-        <div className={s.pizza}>
-          {status === Status.SUCCESS ? pizzas : skeletons}
-        </div>
+        <Heading>Пиццы</Heading>
+        {status === Status.SUCCESS && !pizzas.length ? (
+          <NothingFound />
+        ) : (
+          <div className={s.pizza}>
+            {status === Status.SUCCESS ? pizzas : skeletons}
+          </div>
+        )}
       </main>
     </div>
   )
