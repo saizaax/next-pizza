@@ -6,7 +6,7 @@ import s from "./cart.module.scss"
 import { useDispatch, useSelector } from "react-redux"
 
 import { selectCart } from "../../redux/cart/selectors"
-import { clear } from "../../redux/cart/slice"
+import { clear, setCart } from "../../redux/cart/slice"
 
 import cartIcon from "../../public/icons/cart-black.svg"
 import trashIcon from "../../public/icons/trash.svg"
@@ -20,10 +20,25 @@ import { Total } from "../../components/Total/Total"
 import { Button } from "../../components/Button/Button"
 import { EmptyCart } from "../../components/EmptyCart/EmptyCart"
 import { ICartItem } from "../../utils/types/cartItem.interface"
+import { getCartFromLocalStorage } from "../../utils/getCartFromLocalStorage"
 
 const Cart: NextPage = () => {
+  const isMounted = React.useRef(false)
+  
   const dispatch = useDispatch()
   const { total, items } = useSelector(selectCart)
+
+  React.useEffect(() => {
+    const cart = getCartFromLocalStorage()
+    dispatch(setCart(cart))
+  }, [])
+
+  React.useEffect(() => {
+    if (isMounted.current) {
+      localStorage.setItem("cart", JSON.stringify(items))
+    }
+    isMounted.current = true
+  }, [items])
 
   const totalAmount = items.reduce(
     (sum: number, item: ICartItem) => sum + item.amount,

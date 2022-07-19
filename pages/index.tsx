@@ -20,16 +20,33 @@ import { ProductSkeleton } from "../components/ProductSkeleton/ProductSkeleton"
 import { Status } from "../utils/types/status.enum"
 import { selectFilters } from "../redux/filters/selectors"
 import { NothingFound } from "../components/NothingFound/NothingFound"
+import { selectCart } from "../redux/cart/selectors"
+import { getCartFromLocalStorage } from "../utils/getCartFromLocalStorage"
+import { setCart } from "../redux/cart/slice"
 
 const Home: NextPage = () => {
   const dispatch = useAppDispatch()
+  const isMounted = React.useRef(false)
+
+  const { items: cartItems } = useSelector(selectCart)
   const { items, status } = useSelector(selectPizzaData)
   const { category, sort } = useSelector(selectFilters)
 
   React.useEffect(() => {
     dispatch(fetchPizzas({ sort, category }))
-    console.log({ sort, category })
   }, [category, sort])
+
+  React.useEffect(() => {
+    const cart = getCartFromLocalStorage()
+    dispatch(setCart(cart))
+  }, [])
+
+  React.useEffect(() => {
+    if (isMounted.current) {
+      localStorage.setItem("cart", JSON.stringify(cartItems))
+    }
+    isMounted.current = true
+  }, [cartItems])
 
   const categories = Object.entries(categoriesConfig).map(
     ([key, value], index) => (
