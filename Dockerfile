@@ -2,7 +2,10 @@
 FROM node:17-alpine as dependencies
 WORKDIR /next-pizza
 COPY package.json package-lock.json* ./
+COPY prisma ./prisma/
+
 RUN npm ci
+RUN npx prisma generate
 
 # Build
 FROM node:17-alpine as builder
@@ -11,7 +14,6 @@ WORKDIR /next-pizza
 COPY . .
 COPY --from=dependencies /next-pizza/node_modules ./node_modules
 
-RUN npx prisma generate --schema ./src/prisma
 RUN npm run build
 
 # Run
