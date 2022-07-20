@@ -26,6 +26,7 @@ COPY --from=builder /next-pizza/public ./public
 COPY --from=builder /next-pizza/package.json ./package.json
 COPY --from=builder /next-pizza/.next ./.next
 COPY --from=builder /next-pizza/node_modules ./node_modules
+COPY --from=builder /next-pizza/next.config.js ./
 
 EXPOSE 3000
 
