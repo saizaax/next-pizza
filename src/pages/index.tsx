@@ -24,7 +24,6 @@ import { NothingFound } from "../components/NothingFound/NothingFound"
 import { selectCart } from "../redux/cart/selectors"
 import { getCartFromLocalStorage } from "../utils/getCartFromLocalStorage"
 import { setCart } from "../redux/cart/slice"
-import animation from "./home.motion"
 
 const Home: NextPage = () => {
   const dispatch = useAppDispatch()
@@ -70,6 +69,15 @@ const Home: NextPage = () => {
   const skeletons = Array.from({ length: 8 }).map((_, index) => (
     <ProductSkeleton key={index} />
   ))
+
+  const animation = {
+    visible: {
+      transition: {
+        delayChildren: 0.1,
+        staggerChildren: 0.05,
+      },
+    },
+  }
 
   return (
     <div className={s.container}>

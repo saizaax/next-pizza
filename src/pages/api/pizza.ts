@@ -4,6 +4,21 @@ import { sortBy } from "../../utils/sortBy"
 
 const prisma = new PrismaClient()
 
+interface IPizzaResponse {
+  id: string
+  title: string
+  price: number
+  preview: string
+  categories: ICategoryResponse[]
+}
+
+interface ICategoryResponse {
+  category: {
+    id: string
+    name: string
+  }
+}
+
 const listen = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") return await create(req, res)
   if (req.method === "GET") {
@@ -70,8 +85,8 @@ const getAll = async (req: NextApiRequest, res: NextApiResponse) => {
           },
         },
       })
-      .then((pizzas) =>
-        pizzas.map((pizza) => ({
+      .then((pizzas: any) =>
+        pizzas.map((pizza: IPizzaResponse) => ({
           ...pizza,
           categories: pizza.categories.map(
             (category) => category.category.name
@@ -116,8 +131,8 @@ const getByCategory = async (req: NextApiRequest, res: NextApiResponse) => {
           },
         },
       })
-      .then((pizzas) =>
-        pizzas.map((pizza) => ({
+      .then((pizzas: any) =>
+        pizzas.map((pizza: IPizzaResponse) => ({
           ...pizza,
           categories: pizza.categories.map(
             (category) => category.category.name
