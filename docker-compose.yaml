@@ -1,0 +1,7 @@
+services:
+  next:
+    build: ./
+    container_name: next-pizza
+    restart: always
+    ports:
+      - 82:3000
