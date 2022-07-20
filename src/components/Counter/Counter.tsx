@@ -3,8 +3,8 @@ import s from "./Counter.module.scss"
 
 import { IconButton } from "../IconButton/IconButton"
 
-import addIcon from "../../public/icons/add.svg"
-import removeIcon from "../../public/icons/remove.svg"
+import addIcon from "../../../public/icons/add.svg"
+import removeIcon from "../../../public/icons/remove.svg"
 import { useDispatch } from "react-redux"
 import { add, subtract } from "../../redux/cart/slice"
 

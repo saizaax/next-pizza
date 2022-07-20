@@ -2,7 +2,7 @@ import React, { FC, MouseEvent } from "react"
 import Image from "next/image"
 import s from "./Sort.module.scss"
 
-import arrowIcon from "../../public/icons/arrow.svg"
+import arrowIcon from "../../../public/icons/arrow.svg"
 import { SortPopup } from "../SortPopup/SortPopup"
 import { selectFilters } from "../../redux/filters/selectors"
 import { useSelector } from "react-redux"

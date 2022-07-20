@@ -5,7 +5,7 @@ import s from "./CartProduct.module.scss"
 import { Counter } from "../Counter/Counter"
 import { IconButton } from "../IconButton/IconButton"
 
-import deleteIcon from "../../public/icons/delete.svg"
+import deleteIcon from "../../../public/icons/delete.svg"
 import { useDispatch } from "react-redux"
 import { add, remove, subtract } from "../../redux/cart/slice"
 

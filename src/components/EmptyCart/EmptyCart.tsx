@@ -2,7 +2,7 @@ import Image from "next/image"
 import React, { FC } from "react"
 import s from "./EmptyCart.module.scss"
 
-import emptyCart from "../../public/illustrations/empty-cart.svg"
+import emptyCart from "../../../public/illustrations/empty-cart.svg"
 
 const EmptyCart: FC = () => {
   return (

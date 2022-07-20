@@ -5,7 +5,7 @@ import s from "./NothingFound.module.scss"
 
 import animation from "./NothingFound.motion"
 
-import nothingFound from "../../public/illustrations/nothing-found.svg"
+import nothingFound from "../../../public/illustrations/nothing-found.svg"
 
 const NothingFound: FC = () => {
   return (

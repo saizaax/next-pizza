@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 import React, { FC } from "react"
 import s from "./Product.module.scss"
 
-import cartIcon from "../../public/icons/cart-primary.svg"
+import cartIcon from "../../../public/icons/cart-primary.svg"
 
 import { CounterButton } from "../CounterButton/CounterButton"
 import { InlineSelector } from "../InlineSelector/InlineSelector"

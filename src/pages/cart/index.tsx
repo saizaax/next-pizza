@@ -8,9 +8,9 @@ import { useDispatch, useSelector } from "react-redux"
 import { selectCart } from "../../redux/cart/selectors"
 import { clear, setCart } from "../../redux/cart/slice"
 
-import cartIcon from "../../public/icons/cart-black.svg"
-import trashIcon from "../../public/icons/trash.svg"
-import arrowBackIcon from "../../public/icons/arrow-back.svg"
+import cartIcon from "../../../public/icons/cart-black.svg"
+import trashIcon from "../../../public/icons/trash.svg"
+import arrowBackIcon from "../../../public/icons/arrow-back.svg"
 
 import { CartProduct } from "../../components/CartProduct/CartProduct"
 import { Header } from "../../components/Header/Header"
