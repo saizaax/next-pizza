@@ -4,7 +4,7 @@ import { sortBy } from "../../utils/sortBy"
 
 const prisma = new PrismaClient()
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const listen = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") return await create(req, res)
   if (req.method === "GET") {
     const { category } = req.query
@@ -130,3 +130,5 @@ const getByCategory = async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(500).json({ error: error })
   }
 }
+
+export default listen

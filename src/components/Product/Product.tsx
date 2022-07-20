@@ -42,7 +42,21 @@ const Product: FC<Props> = ({ id, title, preview, price: initialPrice }) => {
     if (size === Size.MEDIUM) setPrice(initialPrice + 180)
     else if (size === Size.LARGE) setPrice(initialPrice + 390)
     else setPrice(initialPrice)
-  }, [size])
+  }, [size, initialPrice])
+
+  const setTypeCallback = React.useCallback(
+    (type: string) => {
+      setType(type)
+    },
+    [setType]
+  )
+
+  const setSizeCallback = React.useCallback(
+    (size: string) => {
+      setSize(size)
+    },
+    [setSize]
+  )
 
   return (
     <motion.div className={s.product} variants={animation}>
@@ -54,11 +68,11 @@ const Product: FC<Props> = ({ id, title, preview, price: initialPrice }) => {
         <div className={s.select}>
           <InlineSelector
             variants={[Type.THIN, Type.TRADITIONAL]}
-            onChange={(type) => setType(type)}
+            onChange={setTypeCallback}
           />
           <InlineSelector
             variants={[Size.SMALL, Size.MEDIUM, Size.LARGE]}
-            onChange={(size) => setSize(size)}
+            onChange={setSizeCallback}
           />
         </div>
         <div className={s.price}>

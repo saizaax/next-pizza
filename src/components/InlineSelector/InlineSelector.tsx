@@ -12,7 +12,7 @@ const InlineSelector: FC<Props> = ({ variants, onChange }) => {
 
   React.useEffect(() => {
     onChange(selected)
-  }, [selected])
+  }, [selected, onChange])
 
   return (
     <div className={s.select}>

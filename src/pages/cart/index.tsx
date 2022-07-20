@@ -31,7 +31,7 @@ const Cart: NextPage = () => {
   React.useEffect(() => {
     const cart = getCartFromLocalStorage()
     dispatch(setCart(cart))
-  }, [])
+  }, [dispatch])
 
   React.useEffect(() => {
     if (isMounted.current) {

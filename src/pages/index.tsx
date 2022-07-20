@@ -36,12 +36,12 @@ const Home: NextPage = () => {
 
   React.useEffect(() => {
     dispatch(fetchPizzas({ sort, category }))
-  }, [category, sort])
+  }, [category, sort, dispatch])
 
   React.useEffect(() => {
     const cart = getCartFromLocalStorage()
     dispatch(setCart(cart))
-  }, [])
+  }, [dispatch])
 
   React.useEffect(() => {
     if (isMounted.current) {
