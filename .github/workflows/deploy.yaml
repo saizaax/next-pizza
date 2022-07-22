@@ -45,14 +45,15 @@ jobs:
       - name: Deploy
         uses: appleboy/ssh-action@master
         env:
+          IMAGE: ${{ env.IMAGE_NAME }}
           SERVICE: ${{ env.SERVICE_NAME }} 
         with:
           host: ${{ secrets.VM_HOST }}
           username: ${{ secrets.VM_USERNAME }}
           password: ${{ secrets.VM_PASSWORD }}
-          envs: SERVICE
+          envs: IMAGE,SERVICE
           script: |
             cd ~/projects/next-pizza
             docker-compose stop ${{ env.SERVICE }}
-            docker-compose pull ${{ env.SERVICE }}
+            docker image rm ${{ env.IMAGE }} --force
             docker-compose -f docker-compose.prod.yaml up -d
