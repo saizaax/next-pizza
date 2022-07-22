@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: ghcr.io/${{ github.repository }}
   DATABASE_URL: ${{ secrets.DATABASE_URL }}
   NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
 
@@ -31,5 +31,5 @@ jobs:
         run: |
           docker tag ${{ env.IMAGE_NAME }} ${{ env.IMAGE_NAME }}:latest
           docker tag ${{ env.IMAGE_NAME }} ${{ env.IMAGE_NAME }}:${{ github.run_number }}
-          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}
+          docker push ${{ env.IMAGE_NAME }}:latest
+          docker push ${{ env.IMAGE_NAME }}:${{ github.run_number }}
