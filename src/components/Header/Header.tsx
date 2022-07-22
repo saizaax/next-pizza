@@ -18,7 +18,7 @@ const Header: FC<Props> = ({ type }) => {
             <Logo />
             <div className={s.title}>
               <h1>Next Pizza</h1>
-              <p>Лучшая пицца на планете 🧡</p>
+              <p>Лучшая пицца на планете 🍕</p>
             </div>
           </div>
         </a>
