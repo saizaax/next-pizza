@@ -8,8 +8,7 @@ networks:
 
 services:
   next:
-    build: ./
-    container_name: next-pizza
+    image: ghcr.io/xaazias/next-pizza
     restart: always
     ports:
       - 82:3000

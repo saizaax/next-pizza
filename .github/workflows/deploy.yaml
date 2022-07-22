@@ -8,11 +8,10 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ghcr.io/${{ github.repository }}
-  DATABASE_URL: ${{ secrets.DATABASE_URL }}
-  NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+  SERVICE_NAME: next
 
 jobs:
-  build-and-push-image:
+  build-and-push:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -20,6 +19,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Create .env file
+        run: |
+          touch .env
+          echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> .env
+          echo NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }} >> .env
 
       - name: Build docker image
         run: docker build . --file Dockerfile --tag ${{ env.IMAGE_NAME }}
@@ -33,3 +38,21 @@ jobs:
           docker tag ${{ env.IMAGE_NAME }} ${{ env.IMAGE_NAME }}:${{ github.run_number }}
           docker push ${{ env.IMAGE_NAME }}:latest
           docker push ${{ env.IMAGE_NAME }}:${{ github.run_number }}
+  deploy:
+    needs: [build-and-push]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        env:
+          SERVICE: ${{ env.SERVICE_NAME }} 
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USERNAME }}
+          password: ${{ secrets.VM_PASSWORD }}
+          envs: SERVICE
+          script: |
+            cd ~/projects/next-pizza
+            docker-compose stop ${{ env.SERVICE }}
+            docker-compose pull ${{ env.SERVICE }}
+            docker-compose -f docker-compose.prod.yaml up -d
