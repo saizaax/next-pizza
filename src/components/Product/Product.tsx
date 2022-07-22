@@ -61,7 +61,7 @@ const Product: FC<Props> = ({ id, title, preview, price: initialPrice }) => {
   return (
     <motion.div className={s.product} variants={animation}>
       <span className={s.preview}>
-        <Image src={preview} alt={title} layout="fill" />
+        <Image src={preview} alt={title} layout="fill" priority={true} />
       </span>
       <div className={s.info}>
         <h3>{title}</h3>
