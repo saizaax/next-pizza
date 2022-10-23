@@ -35,3 +35,22 @@ jobs:
           docker push $IMAGE_NAME:latest
           docker push $IMAGE_NAME:$GITHUB_RUN_NUMBER
           
+  deploy-service:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Docker stack
+        uses: appleboy/ssh-action@master
+        env:
+          REGISTRY: ${{ env.REGISTRY }}
+          GH_PAT: ${{ env.GH_PAT }}
+          STACK_NAME: ${{ env.STACK_NAME }}
+          GH_USER: ${{ env.GH_USER }}
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          envs: REGISTRY, GH_PAT, STACK_NAME, GH_USER
+          script: |
+            cd ~/projects/next-pizza
+            echo "$GH_PAT" | docker login $REGISTRY -u $GH_USER --password-stdin
+            docker stack deploy -c docker.stack.prod.yml $STACK_NAME --with-registry-auth
