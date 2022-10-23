@@ -1,0 +1,23 @@
+version: "3.9"
+
+networks:
+  traefik-gateway:
+    external: true
+
+services:
+  next:
+    image: ghcr.io/saizaax/next-pizza
+    environment:
+      - DATABASE_URL=mysql://root:password@db:3306/pizza
+      - NEXT_PUBLIC_API_URL=http://api:3000/api
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.port=80"
+        - "traefik.http.routers.pizza.rule=Host(`example.com`)"
+        - "traefik.http.routers.pizza.entrypoints=websecure"
+        - "traefik.http.routers.pizza.tls.certresolver=letsencrypt"
+        - "traefik.http.routers.pizza.tls=true"
+        - "traefik.http.services.pizza.loadbalancer.server.port=3000"
+    networks:
+      - traefik-gateway
