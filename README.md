@@ -1,6 +1,6 @@
 # Next Pizza — Website 🍕
 
-[![](https://img.shields.io/website?down_message=offline&label=pizza.saizaax.xyz&up_message=online&url=http%3A%2F%2Fpizza.saizaax.xyz%2F)](https://pizza.saizaax.xyz/)
+[![](https://img.shields.io/website?down_message=offline&label=pizza.saizaax.dev&up_message=online&url=http%3A%2F%2Fpizza.saizaax.dev%2F)](https://pizza.saizaax.dev/)
 [![Next.js](https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white)](https://nextjs.org/)
 [![React.js](https://img.shields.io/badge/React.js-282C34?logo=react&logoColor=white)](https://reactjs.org/)
 [![Redux](https://img.shields.io/badge/Redux-764ABC?logo=redux&logoColor=white)](https://redux.js.org/)
@@ -11,7 +11,7 @@
 ![](preview.png)
 
 <h3 align="center">
-✨ Preview • <a href="https://pizza.saizaax.xyz/">pizza.saizaax.xyz</a>
+✨ Preview • <a href="https://pizza.saizaax.dev/">pizza.saizaax.dev</a>
 </h3>
 
 ## Technologies
